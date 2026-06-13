@@ -1,19 +1,18 @@
 {
-  "name": "ethicalaidownunder.github.io",
-  "version": "0.1.0",
+  "name": "ethical-ai-downunder-site",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "astro check"
   },
   "dependencies": {
+    "@astrojs/check": "latest",
     "@astrojs/sitemap": "latest",
-    "astro": "latest"
-  },
-  "devDependencies": {
+    "astro": "latest",
     "typescript": "latest"
   }
 }

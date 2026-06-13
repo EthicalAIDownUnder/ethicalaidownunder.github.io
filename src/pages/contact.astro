@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { siteConfig } from "../data/site";
+---
+<BaseLayout title="Contact" description="Contact Ethical AI Down Under.">
+  <PageHero
+    eyebrow="Contact"
+    title="Start a conversation with Ethical AI Down Under."
+    description="Reach out about events, partnerships, speaking, media, volunteering, education programs or responsible AI collaboration."
+  />
+
+  <section class="section">
+    <div class="container contact-grid">
+      <article class="contact-card">
+        <h2>Email</h2>
+        <p><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p>
+        <p>Best for general enquiries, collaborations and speaking invitations.</p>
+      </article>
+      <article class="contact-card">
+        <h2>Location</h2>
+        <p>{siteConfig.location}</p>
+        <p>Rooted in South Australia, open to national and international collaboration.</p>
+      </article>
+      <article class="contact-card">
+        <h2>Social</h2>
+        <p>Add LinkedIn, Facebook, X and Bluesky URLs in <code>src/data/site.ts</code> when they are ready.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

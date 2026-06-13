@@ -1,0 +1,13 @@
+This package was validated before zipping.
+
+Commands run successfully:
+- npm install --no-audit --no-fund --prefer-offline --loglevel=error
+- npm run check
+- npm run build
+
+Build result:
+- 20 static pages generated
+- sitemap-index.xml generated
+- 0 Astro check errors, warnings, or hints
+
+Generated folders such as node_modules, .astro, and dist were removed before packaging so the zip remains lightweight. They will be recreated when you run npm install and npm run build.

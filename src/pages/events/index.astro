@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import EventCard from "../../components/EventCard.astro";
+
+const events = (await getCollection("events", ({ data }) => !data.draft))
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+---
+<BaseLayout title="Events" description="Upcoming Ethical AI Down Under events, workshops, webinars and community conversations.">
+  <PageHero
+    eyebrow="Events"
+    title="Workshops, webinars and community conversations."
+    description="This page will grow into the central calendar for Ethical AI Down Under events."
+  />
+
+  <section class="section">
+    <div class="container card-grid card-grid--three">
+      {events.map((event) => <EventCard event={event} />)}
+    </div>
+  </section>
+</BaseLayout>

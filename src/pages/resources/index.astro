@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import ResourceCard from "../../components/ResourceCard.astro";
+
+const resources = (await getCollection("resources", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title="Resources" description="Ethical AI Down Under publications, guides, explainers and toolkits.">
+  <PageHero
+    eyebrow="Resources"
+    title="Publications, guides and practical AI literacy resources."
+    description="A growing library for people and organisations working toward safer, fairer and more transparent AI."
+  />
+
+  <section class="section">
+    <div class="container card-grid card-grid--three">
+      {resources.map((resource) => <ResourceCard resource={resource} />)}
+    </div>
+  </section>
+</BaseLayout>

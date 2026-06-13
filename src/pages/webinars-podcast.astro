@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CTASection from "../components/CTASection.astro";
+---
+<BaseLayout title="Webinars and Podcast" description="Future Ethical AI Down Under webinars and podcast archive.">
+  <PageHero
+    eyebrow="Webinars and Podcast"
+    title="A future media library for practical ethical AI conversations."
+    description="The site is structured so webinar recordings, podcast episodes and transcripts can be added later without redesigning the platform."
+  />
+
+  <section class="section">
+    <div class="container card-grid card-grid--two">
+      <article class="program-card">
+        <h2>Webinar library</h2>
+        <p>Use this area later for recordings, slides, transcripts and follow-up resources from public sessions.</p>
+      </article>
+      <article class="program-card">
+        <h2>Podcast archive</h2>
+        <p>Add episode pages, guest bios, audio embeds, show notes and related resources when the podcast program begins.</p>
+      </article>
+    </div>
+  </section>
+
+  <CTASection title="Interested in being a guest or suggesting a topic?" description="Send a topic idea, speaker suggestion or partnership proposal for future media programming." />
+</BaseLayout>

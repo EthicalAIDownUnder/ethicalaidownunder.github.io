@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { siteConfig } from "../data/site";
+---
+<BaseLayout title="Accessibility" description="Ethical AI Down Under accessibility statement.">
+  <PageHero eyebrow="Accessibility" title="Accessibility statement" description="We want this website to be usable by as many people as possible." />
+
+  <section class="section">
+    <div class="container prose">
+      <p>This starter website has been designed with semantic HTML, keyboard-accessible navigation, visible focus states, responsive layouts and readable colour contrast.</p>
+      <p>Accessibility is an ongoing practice. If you experience a barrier using this website, please contact <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> so we can improve it.</p>
+    </div>
+  </section>
+</BaseLayout>

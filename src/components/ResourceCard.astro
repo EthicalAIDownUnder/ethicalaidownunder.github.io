@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatShortDate, withBase } from "../lib/url";
+
+interface Props {
+  resource: CollectionEntry<"resources">;
+}
+const { resource } = Astro.props;
+const href = withBase(`/resources/${resource.id}/`);
+---
+<article class="card content-card">
+  <div class="card__meta">
+    <span>{resource.data.resourceType}</span>
+    <span>{formatShortDate(resource.data.pubDate)}</span>
+  </div>
+  <h3><a href={href}>{resource.data.title}</a></h3>
+  <p>{resource.data.description}</p>
+  <a class="text-link" href={href}>Open resource</a>
+</article>

@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CTASection from "../components/CTASection.astro";
+
+const programs = [
+  {
+    title: "Research and dialogue",
+    items: ["Ethical AI reading groups", "Issue briefings and discussion papers", "Roundtables with researchers, practitioners and community voices"]
+  },
+  {
+    title: "Education and AI literacy",
+    items: ["Plain-language explainers", "Community workshops", "Practical guidance for schools, workplaces and community organisations"]
+  },
+  {
+    title: "Events and convening",
+    items: ["Meetups and panels", "Webinars and guest talks", "Collaborative sessions on real-world AI risks and opportunities"]
+  },
+  {
+    title: "Youth and early-career engagement",
+    items: ["Student-facing sessions", "Mentoring and career conversations", "Responsible innovation challenges and showcases"]
+  },
+  {
+    title: "Responsible AI advocacy",
+    items: ["Policy and standards conversations", "Public-interest submissions", "Partnerships with aligned organisations"]
+  },
+  {
+    title: "Knowledge sharing",
+    items: ["Blog and resource library", "Publications and toolkits", "Future webinar, podcast and gallery archive"]
+  }
+];
+
+const roadmap = [
+  ["Phase 1", "Launch the website, community presence, core pages, blog, events and joining pathways."],
+  ["Phase 2", "Add newsletter workflows, browser-based editing, event registration and resource publishing cadence."],
+  ["Phase 3", "Introduce partnerships, publications, webinar library, podcast content and volunteer/member coordination."],
+  ["Phase 4", "Develop a broader responsible AI knowledge hub and public programs across Australia and beyond."]
+];
+---
+<BaseLayout title="What We Do" description="Explore Ethical AI Down Under programs, focus areas and roadmap.">
+  <PageHero
+    eyebrow="What we do"
+    title="Turning ethical AI principles into practical community action."
+    description="We combine research, education, public awareness, convening and collaboration to support responsible AI development and use."
+  />
+
+  <section class="section">
+    <div class="container card-grid card-grid--two">
+      {programs.map((program) => (
+        <article class="program-card">
+          <h2>{program.title}</h2>
+          <ul>
+            {program.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--muted">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Purposeful growth</p>
+        <h2>A phased roadmap, built for sustainability.</h2>
+      </div>
+      <div class="timeline">
+        {roadmap.map(([phase, text]) => (
+          <article class="timeline-item">
+            <span>{phase}</span>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Who we work with</p>
+        <h2>Open to people across disciplines and sectors.</h2>
+      </div>
+      <div class="prose-lite">
+        <p>
+          Ethical AI needs technologists, researchers, educators, policymakers, students, community advocates, business leaders, creatives and everyday users at the same table.
+        </p>
+        <p>
+          We welcome collaboration with universities, schools, professional associations, community groups, government teams, start-ups, industry bodies and aligned non-profits.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection title="Have an idea for a workshop, resource or collaboration?" description="We are building the program in public and welcome aligned contributors, partners and speakers." />
+</BaseLayout>

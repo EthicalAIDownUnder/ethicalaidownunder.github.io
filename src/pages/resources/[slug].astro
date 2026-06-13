@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import { formatDate } from "../../lib/url";
+
+export async function getStaticPaths() {
+  const resources = await getCollection("resources", ({ data }) => !data.draft);
+  return resources.map((resource) => ({ params: { slug: resource.id }, props: { resource } }));
+}
+
+const { resource } = Astro.props;
+const { Content } = await render(resource);
+---
+<BaseLayout title={resource.data.title} description={resource.data.description}>
+  <PageHero eyebrow={resource.data.resourceType} title={resource.data.title} description={resource.data.description} />
+
+  <section class="section">
+    <div class="container content-layout">
+      <aside class="details-panel" aria-label="Resource details">
+        <h2>Resource details</h2>
+        <dl>
+          <div><dt>Type</dt><dd>{resource.data.resourceType}</dd></div>
+          <div><dt>Published</dt><dd>{formatDate(resource.data.pubDate)}</dd></div>
+          {resource.data.tags.length > 0 && <div><dt>Tags</dt><dd>{resource.data.tags.join(", ")}</dd></div>}
+        </dl>
+        {resource.data.downloadUrl && <a class="button" href={resource.data.downloadUrl}>Download</a>}
+      </aside>
+      <article class="prose">
+        <Content />
+      </article>
+    </div>
+  </section>
+</BaseLayout>

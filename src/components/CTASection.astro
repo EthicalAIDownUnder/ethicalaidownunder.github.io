@@ -1,0 +1,26 @@
+---
+import { siteConfig } from "../data/site";
+import { withBase } from "../lib/url";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Join the Ethical AI Down Under movement",
+  description = "Be part of a practical, inclusive community working to make AI safer, fairer and more accountable."
+} = Astro.props;
+---
+<section class="section section--accent">
+  <div class="container cta-panel">
+    <div>
+      <p class="eyebrow">Get involved</p>
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+    <div class="cta-actions">
+      <a class="button" href={withBase("/get-involved/")}>Join the movement</a>
+      <a class="button button--secondary" href={siteConfig.subscribeUrl}>Subscribe</a>
+    </div>
+  </div>
+</section>

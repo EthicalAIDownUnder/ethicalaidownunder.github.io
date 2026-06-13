@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CTASection from "../components/CTASection.astro";
+---
+<BaseLayout title="Gallery" description="Ethical AI Down Under gallery and community highlights.">
+  <PageHero
+    eyebrow="Gallery"
+    title="Community moments, events and milestones."
+    description="This page is ready for photos, event highlights and visual storytelling as Ethical AI Down Under grows."
+  />
+
+  <section class="section">
+    <div class="container placeholder-panel">
+      <h2>Gallery coming soon</h2>
+      <p>Use this page later for launch photos, workshop snapshots, partner events and community highlights. Store approved images in <code>public/uploads</code> or manage them through the CMS once media workflows are finalised.</p>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

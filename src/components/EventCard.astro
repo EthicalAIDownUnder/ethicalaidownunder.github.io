@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatShortDate, withBase } from "../lib/url";
+
+interface Props {
+  event: CollectionEntry<"events">;
+}
+const { event } = Astro.props;
+const href = withBase(`/events/${event.id}/`);
+---
+<article class="card event-card">
+  <div class="card__meta">
+    <span>{event.data.type}</span>
+    <span>{formatShortDate(event.data.date)}</span>
+  </div>
+  <h3><a href={href}>{event.data.title}</a></h3>
+  <p>{event.data.summary}</p>
+  <div class="card__footer">
+    <span>{event.data.location}</span>
+    <span class={`status status--${event.data.status}`}>{event.data.status}</span>
+  </div>
+</article>

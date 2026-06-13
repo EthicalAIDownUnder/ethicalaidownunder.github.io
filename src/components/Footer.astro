@@ -1,0 +1,45 @@
+---
+import { footerLinks, siteConfig } from "../data/site";
+import { withBase } from "../lib/url";
+const year = new Date().getFullYear();
+const socialLinks = siteConfig.socials.filter((item) => item.href);
+---
+<footer class="site-footer">
+  <div class="container footer-cta">
+    <div>
+      <p class="eyebrow">Join the movement</p>
+      <h2>Help shape AI that serves people and society.</h2>
+      <p>Subscribe, volunteer, partner, or bring an ethical AI conversation to your organisation or community.</p>
+    </div>
+    <a class="button button--light" href={withBase("/get-involved/")}>Get involved</a>
+  </div>
+
+  <div class="container footer-main">
+    <div class="footer-brand">
+      <img src={withBase("/assets/eaid-logo.png")} alt="Ethical AI Down Under logo" width="140" height="140" />
+      <p>{siteConfig.description}</p>
+      <p><strong>{siteConfig.location}</strong></p>
+      <p><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p>
+    </div>
+
+    {footerLinks.map((group) => (
+      <div class="footer-links">
+        <h3>{group.title}</h3>
+        <ul>
+          {group.links.map((link) => (
+            <li><a href={withBase(link.href)}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; {year} {siteConfig.name}. All rights reserved.</p>
+    {socialLinks.length > 0 && (
+      <div class="social-links" aria-label="Social media links">
+        {socialLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+      </div>
+    )}
+  </div>
+</footer>

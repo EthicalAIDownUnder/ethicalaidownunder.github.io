@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { siteConfig } from "../data/site";
+import { withBase } from "../lib/url";
+
+const options = [
+  {
+    id: "join",
+    title: "Join the movement",
+    text: "Become part of the Ethical AI Down Under community and help shape future programs.",
+    action: "Join now",
+    href: siteConfig.joinUrl
+  },
+  {
+    id: "subscribe",
+    title: "Subscribe to updates",
+    text: "Receive news about events, publications, volunteer opportunities and community milestones.",
+    action: "Subscribe",
+    href: siteConfig.subscribeUrl
+  },
+  {
+    id: "volunteer",
+    title: "Volunteer or contribute",
+    text: "Help with events, writing, research summaries, youth engagement, operations, design or outreach.",
+    action: "Volunteer",
+    href: `mailto:${siteConfig.email}?subject=Volunteer%20with%20Ethical%20AI%20Down%20Under`
+  },
+  {
+    id: "partner",
+    title: "Partner with us",
+    text: "Collaborate on events, AI literacy programs, publications, research discussions or responsible AI initiatives.",
+    action: "Start a partnership conversation",
+    href: `mailto:${siteConfig.email}?subject=Partnership%20conversation`
+  },
+  {
+    id: "speak",
+    title: "Speak, host or facilitate",
+    text: "Suggest a talk, panel, webinar, workshop, podcast topic or community conversation.",
+    action: "Suggest a session",
+    href: `mailto:${siteConfig.email}?subject=Speaking%20or%20session%20proposal`
+  },
+  {
+    id: "support",
+    title: "Support the mission",
+    text: "Help us grow sustainable public-interest programs, especially for young people and community AI literacy.",
+    action: "Discuss support",
+    href: `mailto:${siteConfig.email}?subject=Supporting%20Ethical%20AI%20Down%20Under`
+  }
+];
+---
+<BaseLayout title="Get Involved" description="Join, subscribe, volunteer, partner or contribute to Ethical AI Down Under.">
+  <PageHero
+    eyebrow="Get involved"
+    title="Join the movement for responsible, human-centred AI."
+    description="Start with a simple email today. As our systems mature, this page can connect to HubSpot, CiviCRM, Google Forms, Buttondown, Brevo, Mailchimp or another open and sustainable workflow."
+  />
+
+  <section class="section">
+    <div class="container card-grid card-grid--three involvement-grid">
+      {options.map((option) => (
+        <article class="involvement-card" id={option.id}>
+          <h2>{option.title}</h2>
+          <p>{option.text}</p>
+          <a class="button button--secondary" href={option.href}>{option.action}</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--muted">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">What happens next</p>
+        <h2>Simple now, scalable later.</h2>
+      </div>
+      <div class="prose-lite">
+        <p>
+          For the first launch, the buttons use email links so you can respond personally and learn what people want from the community.
+        </p>
+        <p>
+          Once the community grows, replace the email links in <code>src/data/site.ts</code> with dedicated forms or CRM links. Good next choices include HubSpot for CRM, CiviCRM for open-source civic/non-profit workflows, or Buttondown/Brevo/Mailchimp for newsletters.
+        </p>
+        <p>
+          The website structure already supports future member, volunteer, partner, speaker and subscriber pathways without redesigning the whole site.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container cta-panel cta-panel--light">
+      <div>
+        <p class="eyebrow">Prefer to talk first?</p>
+        <h2>Contact us directly.</h2>
+        <p>For partnerships, media, speaking, workshops or general enquiries, email {siteConfig.email}.</p>
+      </div>
+      <a class="button" href={withBase("/contact/")}>Contact us</a>
+    </div>
+  </section>
+</BaseLayout>

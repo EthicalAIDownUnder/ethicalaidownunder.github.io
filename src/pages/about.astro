@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CTASection from "../components/CTASection.astro";
+
+const values = [
+  ["Human-centred", "AI should respect human dignity, agency and wellbeing."],
+  ["Transparent", "People should be able to understand when and how AI is used in decisions that affect them."],
+  ["Inclusive", "Ethical AI must include diverse communities, disciplines and lived experiences."],
+  ["Evidence-led", "Good governance needs research, practical experience and critical thinking."],
+  ["Collaborative", "No single sector can solve AI challenges alone."],
+  ["Accountable", "Responsible innovation requires clear roles, oversight and public trust."]
+];
+---
+<BaseLayout title="About" description="Learn about Ethical AI Down Under, our mission, vision and values.">
+  <PageHero
+    eyebrow="About us"
+    title="A practical, inclusive community for responsible AI."
+    description="Ethical AI Down Under is a non-profit initiative dedicated to safe, ethical, transparent and human-centred AI across Australia and beyond."
+  />
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Our story</p>
+        <h2>Ethical AI is a human challenge, not only a technical one.</h2>
+      </div>
+      <div class="prose-lite">
+        <p>
+          AI is already influencing how people learn, work, create, access services and make decisions. As adoption accelerates, public trust depends on more than technical performance. It depends on fairness, accountability, transparency, safety, privacy, inclusion and meaningful human oversight.
+        </p>
+        <p>
+          Ethical AI Down Under exists to make these conversations more accessible and more useful. We convene people across technology, ethics, policy, education, industry and community so that responsible AI is shaped with people, not only for them.
+        </p>
+        <p>
+          We are based in Adelaide and connected to broader Australian and international conversations on AI governance, AI literacy and public-interest technology.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted">
+    <div class="container two-cards">
+      <article class="statement-card">
+        <p class="eyebrow">Mission</p>
+        <h2>To advance ethical, transparent and human-centred AI.</h2>
+        <p>We do this through research, education, collaboration and public awareness.</p>
+      </article>
+      <article class="statement-card statement-card--dark">
+        <p class="eyebrow">Vision</p>
+        <h2>A future where AI is responsible, equitable and in service of society.</h2>
+        <p>We work toward AI systems and practices that strengthen public trust and protect human values.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <p class="eyebrow">Values</p>
+        <h2>Principles that guide our work</h2>
+        <p>These values shape our programs, partnerships and public voice.</p>
+      </div>
+      <div class="card-grid card-grid--three">
+        {values.map(([title, text]) => (
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true"></div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Our approach</p>
+        <h2>Convene, educate, question and collaborate.</h2>
+      </div>
+      <div class="prose-lite">
+        <p>
+          We create practical spaces for learning and dialogue: community events, workshops, research discussions, public explainers, youth engagement and responsible AI collaboration with organisations.
+        </p>
+        <p>
+          We aim to be constructive and independent. Our goal is not to slow innovation, but to help innovation become safer, fairer and more worthy of public trust.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>
